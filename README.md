@@ -19,11 +19,20 @@ Dagmawit Tsegaye — 0387/15
 
 Yididiya Tewdros — 1517/15
 Key Features
-➕ Add, Edit, and Delete Expenses
-🗂️ Categorize Expenses (Food, Transport, Bills, etc.)
-📅 View Weekly and Monthly Spending Summaries
-💾 Fully Offline Functionality (SQLite Integration)
-🧭 Simple, Responsive, and Minimal UI
+
+📱 Key Features
+
+➕ Add new expenses
+
+✏️ Edit or delete existing entries
+
+📋 View all expenses in a scrollable list
+
+📊 View total spending summary (weekly/monthly)
+
+🚫 Fully offline, no internet required
+
+
 | Component            | Technology / Tool           |
 | -------------------- | --------------------------- |
 | Programming Language | Java                        |
