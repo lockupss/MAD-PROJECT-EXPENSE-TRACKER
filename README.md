@@ -46,11 +46,11 @@ Key Features
 
 🔗 Project Links
 
-Figma Prototype: [(https://www.figma.com/design/ohB59C8O9gmjZ7XgubhEGL/Expense-Tracker-.MAD.project?node-id=0-1&t=IiQIHo1eWWGJzW46-1)]
+Figma Prototype: [view figma](https://www.figma.com/design/ohB59C8O9gmjZ7XgubhEGL/Expense-Tracker-.MAD.project?node-id=0-1&t=IiQIHo1eWWGJzW46-1)
 
-GitHub Repository: [https://github.com/lockupss/MAD-PROJECT]
+GitHub Repository: [view github](https://github.com/lockupss/MAD-PROJECT)
 
-Jira Project: [ https://abinettargaw.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog]
+Jira Project: [view jira](https://abinettargaw.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog)
 
 Summary
 
