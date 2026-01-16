@@ -1,0 +1,57 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Soft light base -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#FAFBFC"
+                android:endColor="#EEF1F4"
+                android:angle="135"/>
+        </shape>
+    </item>
+
+    <!-- Tiny circle (top-left) -->
+    <item android:top="48dp" android:left="36dp">
+        <shape android:shape="oval">
+            <size android:width="10dp" android:height="10dp"/>
+            <solid android:color="#12000000"/>
+        </shape>
+    </item>
+
+    <!-- Tiny triangle (top-right) -->
+    <item android:top="72dp" android:right="42dp">
+        <rotate android:fromDegrees="45">
+            <shape>
+                <size android:width="9dp" android:height="9dp"/>
+                <solid android:color="#10000000"/>
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- Tiny circle (center-left) -->
+    <item android:top="260dp" android:left="24dp">
+        <shape android:shape="oval">
+            <size android:width="8dp" android:height="8dp"/>
+            <solid android:color="#0F000000"/>
+        </shape>
+    </item>
+
+    <!-- Tiny triangle (bottom-right) -->
+    <item android:bottom="140dp" android:right="60dp">
+        <rotate android:fromDegrees="45">
+            <shape>
+                <size android:width="10dp" android:height="10dp"/>
+                <solid android:color="#12000000"/>
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- Tiny circle (bottom-left) -->
+    <item android:bottom="64dp" android:left="48dp">
+        <shape android:shape="oval">
+            <size android:width="9dp" android:height="9dp"/>
+            <solid android:color="#0E000000"/>
+        </shape>
+    </item>
+
+</layer-list>

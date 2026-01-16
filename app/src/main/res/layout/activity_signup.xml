@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/img_4"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header -->
+        <ImageView
+            android:layout_gravity="center"
+            android:src="@drawable/ic_wallet"
+            android:layout_width="72dp"
+            android:layout_height="72dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Expense Tracker"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage your daily expenses with ease"
+            android:textColor="@color/primary"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Card -->
+        <LinearLayout
+            android:background="@drawable/glass_card"
+            android:elevation="12dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create Account"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign up to start tracking your expenses"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/nameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="John Doe"
+                android:background="@drawable/glass_input"
+                android:padding="12dp"/>
+
+            <EditText
+                android:id="@+id/emailEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="you@example.com"
+                android:background="@drawable/glass_input"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/passwordEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:background="@drawable/glass_input"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/confirmPasswordEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:background="@drawable/glass_input"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"/>
+
+            <Button
+                android:id="@+id/signUpBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_primary"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

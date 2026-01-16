@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/img_4"
+
+    android:padding="16dp">
+
+    <!-- ================= HEADER ================= -->
+    <LinearLayout
+        android:background="@drawable/glass_card"
+        android:padding="12dp"
+        android:elevation="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_wallet"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expense Tracker"
+                android:textStyle="bold"
+                android:textColor="#000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal Finance Manager"
+                android:textSize="12sp"
+                android:textColor="#666666"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ================= TABS ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:background="@drawable/glass_card"
+        android:elevation="6dp"
+
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tabExpenses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Expenses"
+            android:gravity="center"
+            android:padding="10dp"
+            android:background="#EEF2FF"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/tabSummary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Summary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+    <!-- ================= EXPENSES PAGE ================= -->
+    <LinearLayout
+        android:id="@+id/layoutExpenses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnAddExpense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="+ Add Expense"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5"/>
+
+        <!-- EXPENSE LIST -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerExpenses"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+
+    <!-- ================= SUMMARY PAGE ================= -->
+    <LinearLayout
+        android:id="@+id/layoutSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+
+        <include
+            layout="@layout/layout_summary"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+
