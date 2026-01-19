@@ -1,62 +1,78 @@
-//AddExpenseActivity.java
+//ExpenseAdapter.java
 package com.example.expense;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.*;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class AddExpenseActivity extends AppCompatActivity {
+import java.util.List;
 
-    EditText etTitle, etCategory, etNote, etAmount;
-    Button btnSave;
+public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder> {
 
-    ExpenseDatabase db;
-    SessionManager session;
+    public interface OnExpenseActionListener {
+        void onEdit(Expense expense);
+        void onDelete(Expense expense);
+    }
+
+    List<Expense> list;
+    Context context;
+    OnExpenseActionListener listener;
+
+    public ExpenseAdapter(List<Expense> list, Context context, OnExpenseActionListener listener) {
+        this.list = list;
+        this.context = context;
+        this.listener = listener;
+    }
+
+    public void updateList(List<Expense> newList) {
+        this.list = newList;
+        notifyDataSetChanged();
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_expense);
+    public ExpenseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_expense, parent, false);
+        return new ExpenseViewHolder(view);
+    }
 
-        etTitle = findViewById(R.id.etTitle);
-        etCategory = findViewById(R.id.etCategory);
-        etNote = findViewById(R.id.etNote);
-        etAmount = findViewById(R.id.etAmount);
-        btnSave = findViewById(R.id.btnSave);
+    @Override
+    public void onBindViewHolder(ExpenseViewHolder holder, int position) {
+        Expense e = list.get(position);
 
-        db = ExpenseDatabase.getInstance(this);
-        session = new SessionManager(this);
+        holder.tvTitle.setText(e.getTitle());
+        holder.tvCategory.setText(e.getCategory());
+        holder.tvAmount.setText("ETB " + e.getAmount());
+        holder.tvDate.setText(e.getDate());
 
-        btnSave.setOnClickListener(v -> {
+        holder.btnEdit.setOnClickListener(v -> listener.onEdit(e));
+        holder.btnDelete.setOnClickListener(v -> listener.onDelete(e));
+    }
 
-            int userId = session.getUserId();
-            if (userId == -1) {
-                Toast.makeText(this, "Please login again", Toast.LENGTH_SHORT).show();
-                return;
-            }
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
 
-            String title = etTitle.getText().toString();
-            String category = etCategory.getText().toString();
-            String note = etNote.getText().toString();
-            double amount = Double.parseDouble(etAmount.getText().toString());
+    class ExpenseViewHolder extends RecyclerView.ViewHolder {
+        TextView tvTitle, tvCategory, tvAmount, tvDate;
+        Button btnEdit, btnDelete;
 
-            String date = new SimpleDateFormat(
-                    "yyyy-MM-dd", Locale.getDefault()
-            ).format(new Date());
-
-            Expense expense = new Expense(
-                    session.getUserId(), title, note, amount, date, category
-            );
-
-            new Thread(() ->
-                    db.expenseDao().insertExpense(expense)
-            ).start();
-
-            finish();
-        });
+        public ExpenseViewHolder(View itemView) {
+            super(itemView);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvCategory = itemView.findViewById(R.id.tvCategory);
+            tvAmount = itemView.findViewById(R.id.tvAmount);
+            tvDate = itemView.findViewById(R.id.tvDate);
+            btnEdit = itemView.findViewById(R.id.btnEdit);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
+        }
     }
 }
