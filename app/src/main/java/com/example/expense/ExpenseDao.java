@@ -1,53 +1,24 @@
-//Expense.java
+//ExpenseDao.java
 package com.example.expense;
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+import androidx.lifecycle.LiveData;
+import androidx.room.*;
 
-@Entity(tableName = "expenses")
-public class Expense {
+import java.util.List;
+import com.example.expense.Expense;
+@Dao
+public interface ExpenseDao {
 
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @Insert
+    void insertExpense(Expense expense);
 
-    private int userId; // <-- assign this when inserting
-    private String title;
-    private String extraField;
-    private double amount;
-    private String date;
-    private String category;
+    @Update
+    void updateExpense(Expense expense);
 
-    // ===== Full Constructor =====
-    public Expense(int userId, String title, String extraField, double amount, String date, String category) {
-        this.userId = userId;
-        this.title = title;
-        this.extraField = extraField;
-        this.amount = amount;
-        this.date = date;
-        this.category = category;
-    }
+    @Delete
+    void deleteExpense(Expense expense);
 
-    public Expense() {}
-
-    // ===== Getters & Setters =====
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
-
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-
-    public String getExtraField() { return extraField; }
-    public void setExtraField(String extraField) { this.extraField = extraField; }
-
-    public double getAmount() { return amount; }
-    public void setAmount(double amount) { this.amount = amount; }
-
-    public String getDate() { return date; }
-    public void setDate(String date) { this.date = date; }
-
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    //  New: get expenses for a specific user
+    @Query("SELECT * FROM expenses WHERE userId = :userId ORDER BY date DESC")
+    LiveData<List<Expense>> getExpensesForUser(int userId);
 }
